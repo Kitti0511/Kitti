@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ศูนย์เรียนรู้ภาษีสรรพสามิต | Excise Knowledge Center</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Sarabun', sans-serif; background-color: #f4f7f6; color: #333; }
+        .navbar { background-color: #1a237e; border-bottom: 3px solid #ffd600; }
+        .hero { background: linear-gradient(135deg, #1a237e 0%, #283593 100%); color: white; padding: 80px 0; }
+        .info-card { border: none; border-radius: 15px; transition: 0.3s; height: 100%; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .info-card:hover { transform: translateY(-10px); box-shadow: 0 12px 20px rgba(0,0,0,0.1); }
+        
+        /* AI Chat UI */
+        #chat-widget { position: fixed; bottom: 20px; right: 20px; width: 350px; z-index: 1000; }
+        #chat-window { display: none; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 25px rgba(0,0,0,0.2); flex-direction: column; height: 450px; }
+        #chat-header { background: #1a237e; color: white; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; }
+        #chat-body { flex: 1; padding: 15px; overflow-y: auto; font-size: 14px; background: #f9f9f9; }
+        .bot-msg { background: #e8eaf6; padding: 10px; border-radius: 10px; margin-bottom: 10px; align-self: flex-start; }
+        .user-msg { background: #1a237e; color: white; padding: 10px; border-radius: 10px; margin-bottom: 10px; align-self: flex-end; text-align: right; }
+        #chat-btn { width: 60px; height: 60px; border-radius: 50%; background: #ffd600; border: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-size: 24px; cursor: pointer; float: right; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">EXCISE KNOWLEDGE</a>
+        </div>
+    </nav>
+
+    <header class="hero text-center">
+        <div class="container">
+            <h1 class="display-5 fw-bold mb-3">คลังความรู้ภาษีสรรพสามิตเพื่อประชาชน</h1>
+            <p class="lead">เข้าใจบทบาท ภาษี และหน้าที่ของกรมสรรพสามิตในเชิงสร้างสรรค์</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card info-card p-4">
+                    <h4 class="text-primary mb-3">1. ภาษีนี้เก็บไปเพื่ออะไร?</h4>
+                    <p>ภาษีสรรพสามิตไม่ได้เน้นแค่รายได้รัฐ แต่เป็นเครื่องมือควบคุมการบริโภคสินค้าที่ส่งผลต่อสุขภาพ (เช่น สุรา ยาสูบ) และสิ่งแวดล้อม (เช่น รถยนต์ปล่อยมลพิษ) เพื่อสร้างสังคมที่ยั่งยืน</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card info-card p-4">
+                    <h4 class="text-primary mb-3">2. สินค้าที่ต้องเสียภาษี</h4>
+                    <ul class="small">
+                        <li>สินค้าที่ให้โทษต่อสุขภาพ (สุรา, บุหรี่)</li>
+                        <li>สินค้าฟุ่มเฟือย (น้ำหอม, รถยนต์)</li>
+                        <li>สินค้าที่กระทบสิ่งแวดล้อม (น้ำมัน, แบตเตอรี่)</li>
+                        <li>ภาคบริการ (สนามกอล์ฟ, ไนท์คลับ)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card info-card p-4">
+                    <h4 class="text-primary mb-3">3. ภาษีกับสิ่งแวดล้อม (ESG)</h4>
+                    <p>ปัจจุบันกรมฯ มีนโยบายส่งเสริมพลังงานสะอาด เช่น การลดภาษีรถยนต์ไฟฟ้า (EV) เพื่อกระตุ้นให้เกิดการลดการปล่อยก๊าซคาร์บอนไดออกไซด์ในประเทศไทย</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="mt-5 p-5 bg-white rounded-4 shadow-sm">
+            <h2 class="text-center mb-4">เกร็ดความรู้: "ทำไมน้ำหวานถึงเสียภาษี?"</h2>
+            <p class="text-center text-muted">
+                นโยบายภาษีความหวาน (Sugar Tax) มีวัตถุประสงค์เพื่อส่งเสริมให้ผู้ผลิตลดปริมาณน้ำตาลในเครื่องดื่ม 
+                เพื่อช่วยลดความเสี่ยงโรค NCDs เช่น โรคเบาหวาน และโรคอ้วนในประชากรไทย โดยเป็นการใช้มาตรการทางภาษีเพื่อจูงใจให้ดูแลสุขภาพ
+            </p>
+        </section>
+    </main>
+
+    <div id="chat-widget">
+        <div id="chat-window">
+            <div id="chat-header">
+                <span>Excise AI Assistant (Beta)</span>
+                <button onclick="toggleChat()" style="background:none; border:none; color:white;">✕</button>
+            </div>
+            <div id="chat-body" class="d-flex flex-column">
+                <div class="bot-msg">สวัสดีครับ ผมคือผู้ช่วยให้ความรู้ด้านภาษีสรรพสามิต สอบถามได้เลยครับ (เช่น: ภาษีคืออะไร, สินค้าใดบ้างที่เสียภาษี?)</div>
+            </div>
+            <div class="p-2 border-top">
+                <div class="input-group">
+                    <input type="text" id="user-input" class="form-control" placeholder="พิมพ์คำถามที่นี่...">
+                    <button class="btn btn-primary" onclick="sendMessage()">ส่ง</button>
+                </div>
+            </div>
+        </div>
+        <button id="chat-btn" onclick="toggleChat()">🤖</button>
+    </div>
+
+    <footer class="text-center py-4 text-muted">
+        <p>© 2026 ข้อมูลเพื่อการศึกษาเท่านั้น | กรมสรรพสามิต</p>
+    </footer>
+
+    <script>
+        function toggleChat() {
+            const chat = document.getElementById('chat-window');
+            chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('user-input');
+            const body = document.getElementById('chat-body');
+            if (input.value.trim() === "") return;
+
+            // User Message
+            const userDiv = document.createElement('div');
+            userDiv.className = 'user-msg';
+            userDiv.innerText = input.value;
+            body.appendChild(userDiv);
+
+            // AI Logic (Simple Response)
+            const botDiv = document.createElement('div');
+            botDiv.className = 'bot-msg';
+            const query = input.value.toLowerCase();
+            
+            if (query.includes("ภาษีคืออะไร")) {
+                botDiv.innerText = "ภาษีสรรพสามิตคือภาษีที่จัดเก็บจากสินค้าและบริการที่มีเหตุผลพิเศษ เช่น ส่งผลต่อสุขภาพ หรือสิ่งแวดล้อมครับ";
+            } else if (query.includes("สินค้า") || query.includes("อะไรบ้าง")) {
+                botDiv.innerText = "สินค้าหลักๆ ได้แก่ สุรา, ยาสูบ, น้ำมัน, รถยนต์, และเครื่องดื่มที่มีน้ำตาลครับ";
+            } else if (query.includes("ev") || query.includes("ไฟฟ้า")) {
+                botDiv.innerText = "รถยนต์ไฟฟ้า (EV) ได้รับการสนับสนุนทางภาษีเพื่อช่วยลดมลพิษครับ";
+            } else {
+                botDiv.innerText = "ขออภัยครับ ข้อมูลส่วนนี้ยังไม่พบในคลังความรู้พื้นฐาน คุณสามารถติดต่อสายด่วน 1713 เพื่อสอบถามเพิ่มเติมได้ครับ";
+            }
+            
+            setTimeout(() => {
+                body.appendChild(botDiv);
+                body.scrollTop = body.scrollHeight;
+            }, 600);
+
+            input.value = "";
+            body.scrollTop = body.scrollHeight;
+        }
+    </script>
+</body>
+</html>
